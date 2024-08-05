@@ -28,5 +28,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make("admin123"),
             'private' => 0,
         ]);
+
+        User::factory(30)->create();
     }
 }

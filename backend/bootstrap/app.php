@@ -2,6 +2,7 @@
 
 use Illuminate\Foundation\Application;
 use Illuminate\Session\Middleware\StartSession;
+use App\Http\Middleware\ExpiredTokenVerifyEmail;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 
@@ -14,6 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->append(StartSession::class);
+        $middleware->append(ExpiredTokenVerifyEmail::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
